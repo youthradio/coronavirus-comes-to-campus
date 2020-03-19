@@ -1,8 +1,8 @@
 export default {
-  baseURL: '/static-nuxt-template',
-  title: 'Static Template Title',
-  author: 'Static Author',
-  publishDate: 'Oct. 2, 2019',
+  baseURL: '/covid-comes-to-compus',
+  title: 'Covid Comes to Compus',
+  author: 'YR Media',
+  publishDate: 'Mar. 18, 2020',
   location: 'Oakland, CA',
   description: 'SEO friendly Description',
   url: 'CANONICAL URL',
