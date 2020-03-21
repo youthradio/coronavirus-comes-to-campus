@@ -1,6 +1,6 @@
 export default {
-  baseURL: '/covid-comes-to-compus',
-  title: 'Covid Comes to Compus',
+  baseURL: '/covid-comes-to-campus',
+  title: 'Covid Comes to Campus',
   author: 'YR Media',
   publishDate: 'Mar. 18, 2020',
   location: 'Oakland, CA',

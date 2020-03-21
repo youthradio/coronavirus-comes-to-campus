@@ -1,6 +1,6 @@
 $baseFont: "Assistant", sans-serif;
-$baseFontHeaders: "Roboto Mono", sans-serif;
-$header4FontFamily: "Roboto Mono", sans-serif;
+$baseFontHeaders: "Days Sans Black", sans-serif;
+$header4FontFamily: "Days Sans Black", sans-serif;
 $header3FontFamily: "Days Sans", sans-serif;
 $black: #2e2e2e;
 $green: #00ebab;
@@ -11,18 +11,18 @@ $blue-button: #05e3f5;
 $sky-blue: #00cec3;
 $red: #fe5a59;
 $dusk: #f7b589;
-$grey: #979797;
+$grey: #C4C4C4;
 $orange: #f7b589;
 $feature-header-color: $black;
 // Typesetting variables. Edit here or override in main file prior to import of this.
 
 $baseFontSize: 22 !default; // in pixels. This would result in 22px on desktop
 
-$baseLineHeight: 1.5 !default; // how large the line height is as a multiple of font size
+$baseLineHeight: 1.15 !default; // how large the line height is as a multiple of font size
 $leading: $baseLineHeight * 1rem !default;
 // Rate of growth for headings
 // I actually like this to be slightly smaller then the leading. Makes for tight headings.
-$scale: 1.414 !default;
+$scale: 0.714 !default;
 
 $responsiveWidth: 800px;
 
