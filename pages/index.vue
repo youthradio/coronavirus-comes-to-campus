@@ -80,9 +80,9 @@ export default {
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(100%, 1fr);
   @include breakpoint(medium) {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: 1fr minmax(320px, 1fr);
   }
 }
 .grid-col-left {
