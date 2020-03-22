@@ -7,11 +7,15 @@
           <h1> {{ articleData.title }} </h1>
           <div v-html="articleData.intro.text" />
 
-          <MapContainer />
+          <MapContainer :active-state="activeState" />
         </div>
       </div>
       <div class="grid-col-right">
-        <SocialEmbeds :embeds-data="embedsData" />
+        <SocialEmbeds
+          :embeds-data="embedsData"
+          @onActiveState="onActiveState"
+          @onSelectCategory="c => selectedCategory = c"
+        />
       </div>
       <div class="grid-row">
         <h2>{{ articleData.resources.title }}</h2>
@@ -60,15 +64,18 @@ export default {
   },
   data () {
     return {
+      activeState: null,
+      selectedCategory: null
     }
   },
   computed: {},
   watch: {
 
   },
-  mounted () {
-  },
   methods: {
+    onActiveState ({ state, location, isVisible }) {
+      this.activeState = Object.assign({}, { state, location, isVisible, color: this.selectedCategory.color })
+    }
 
   }
 }
