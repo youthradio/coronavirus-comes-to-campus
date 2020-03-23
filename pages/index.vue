@@ -3,11 +3,14 @@
     <MenuHeader :toggle-enable="false" />
     <div class="grid">
       <div class="grid-col-left">
-        <div class="sticky">
+        <div class="sticky-top">
           <h1> {{ articleData.title }} </h1>
           <div v-html="articleData.intro.text" />
 
-          <MapContainer :active-state="activeState" />
+          <MapContainer
+            class="map-container"
+            :active-state="activeState"
+          />
         </div>
       </div>
       <div class="grid-col-right">
@@ -120,10 +123,27 @@ export default {
     column-count: 2;
   }
 }
-.sticky {
-  position: sticky;
-  top: 68px; // menu height
+.sticky-top {
+  @include breakpoint(medium) {
+    position: sticky;
+    top: 68px; // menu height
+  }
 }
+
+.map-container {
+  touch-action: none;
+  pointer-events: none;
+  z-index: 10000;
+  position: fixed;
+  width: 60%;
+  bottom: 50px;
+  right: 0px;
+  @include breakpoint(medium) {
+    position: inherit;
+    width: 100%;
+  }
+}
+
 .credits {
   background-color: $grey;
 }
