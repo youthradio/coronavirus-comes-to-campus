@@ -176,8 +176,11 @@ export default {
     width: 100%;
   }
   @media screen and (orientation: landscape) {
-    @include breakpoint(medium) {
-      max-width: 60%;
+    @media (min-width: 768px) {
+      max-width: 50%;
+      @media (min-height: 650px) {
+        max-width: 100%;
+      }
     }
   }
 }
