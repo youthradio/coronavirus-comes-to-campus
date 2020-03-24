@@ -16,5 +16,5 @@ jobs:
         key: ${{ secrets.key }}
         port: ${{ secrets.PORT }}
         script: |
-          cd static/static-nuxt-template
+          cd static/coronavirus-comes-to-campus
           git fetch && git reset --hard FETCH_HEAD && git clean -df
