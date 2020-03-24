@@ -89,10 +89,13 @@ export default {
 @import "~@/css/mixins";
 
 .grid {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1500px;
   display: grid;
   grid-template-columns: minmax(100%, 1fr);
   @include breakpoint(medium) {
-    grid-template-columns: 1fr minmax(320px, 1fr);
+    grid-template-columns: 2fr minmax(450px, 1fr);
   }
 }
 .grid-col-left {
@@ -125,12 +128,17 @@ export default {
 }
 .sticky-top {
   @include breakpoint(medium) {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 68px);
     position: sticky;
     top: 68px; // menu height
   }
 }
 
 .map-container {
+  margin-top: auto;
+  margin-left: auto;
   touch-action: none;
   pointer-events: none;
   z-index: 10000;
@@ -140,7 +148,7 @@ export default {
   right: 0px;
   @include breakpoint(medium) {
     position: inherit;
-    width: 100%;
+    max-width: 60%;
   }
 }
 
