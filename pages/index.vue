@@ -143,12 +143,19 @@ export default {
   pointer-events: none;
   z-index: 10000;
   position: fixed;
-  width: 60%;
   bottom: 50px;
   right: 0px;
-  @include breakpoint(medium) {
+  width: 60%;
+
+  @media screen and (orientation: portrait) {
     position: inherit;
-    max-width: 60%;
+    width: 100%;
+  }
+  @media screen and (orientation: landscape) {
+    @include breakpoint(medium) {
+      position: inherit;
+      max-width: 60%;
+    }
   }
 }
 
