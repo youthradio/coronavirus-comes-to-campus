@@ -6,11 +6,17 @@
         <div class="sticky-top">
           <h1> {{ articleData.title }} </h1>
           <div v-html="articleData.intro.text" />
-
-          <MapContainer
-            class="map-container"
-            :active-state="activeState"
-          />
+          <div class="bottom-container">
+            <div class="more">
+              <span class="title">Read More</span>
+              <span><a href="#resources">Additional Resources</a></span>
+              <span><a href="#credits">Credits</a></span>
+            </div>
+            <MapContainer
+              class="map-container"
+              :active-state="activeState"
+            />
+          </div>
         </div>
       </div>
       <div class="grid-col-right">
@@ -20,16 +26,26 @@
           @onSelectCategory="c => selectedCategory = c"
         />
       </div>
-      <div class="grid-row">
+      <div
+        id="resources"
+        class="grid-row"
+      >
         <h2>{{ articleData.resources.title }}</h2>
         <div
           class="multi-col"
           v-html="articleData.resources.text"
         />
       </div>
-      <div class="grid-row credits">
+      <div
+        id="credits"
+        class="grid-row credits"
+      >
         <h2>{{ articleData.credits.title }}</h2>
-        <div v-html="articleData.credits.text" />
+        <template v-for="row in articleData.credits.people">
+          <div :key="row.title">
+            <span class="title">{{ row.title }}: </span>{{ row.names }}
+          </div>
+        </template>
       </div>
     </div>
     <ShareContainer />
@@ -128,38 +144,61 @@ export default {
 }
 .sticky-top {
   @include breakpoint(medium) {
-    display: flex;
-    flex-direction: column;
     height: calc(100vh - 68px);
     position: sticky;
     top: 68px; // menu height
   }
 }
 
-.map-container {
-  margin-top: auto;
+.bottom-container {
+  display: flex;
+  justify-content: space-between;
+  align-self: baseline;
   margin-left: auto;
   touch-action: none;
-  pointer-events: none;
   z-index: 10000;
   position: fixed;
   bottom: 50px;
   right: 0px;
-  width: 60%;
+  width: 100%;
+  @include breakpoint(medium) {
+    position: absolute;
+    bottom: 5px;
+  }
+}
 
+.map-container {
+  touch-action: none;
+  pointer-events: none;
+  z-index: 10000;
+  width: 60%;
   @media screen and (orientation: portrait) {
-    position: inherit;
     width: 100%;
   }
   @media screen and (orientation: landscape) {
     @include breakpoint(medium) {
-      position: inherit;
       max-width: 60%;
     }
   }
 }
-
+.more {
+  font-size: small;
+  line-height: 1rem;
+  margin-top: auto;
+  .title {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  span {
+    display: block;
+  }
+}
 .credits {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
   background-color: $grey;
+  .title {
+    font-weight: bold;
+  }
 }
 </style>
