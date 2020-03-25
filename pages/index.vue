@@ -16,7 +16,10 @@
                 <span><a href="#credits">Credits</a></span>
               </div>
             </div>
-            <div class="intro" v-html="articleData.intro.text" />
+            <div
+              class="intro"
+              v-html="articleData.intro.text"
+            />
           </div>
         </div>
       </div>
@@ -153,10 +156,10 @@ export default {
 }
 
 .float::before {
-    content: " ";
-    height: 100px;
-    width: 0px;
-    float: right;
+  content: " ";
+  height: 100px;
+  width: 0px;
+  float: right;
 }
 .bottom-container {
   display: flex;
@@ -167,27 +170,41 @@ export default {
   float: right;
   clear: right;
   width: 60%;
+
+  @media screen and (orientation: portrait) {
+    width: 60%;
+    @media (min-width: 768px) {
+      width: 100%;
+    }
+  }
+  @media screen and (orientation: landscape) {
+    @media (min-width: 768px) {
+      max-width: 50%;
+      @media (min-height: 650px) {
+        max-width: 100%;
+      }
+    }
+  }
+
   margin-top: 0.5rem;
+  position: fixed;
+  bottom: 20px;
+  right: 0px;
+  background-color: rgba(#c4c4c4, 0.5);
+  border-radius: 20px;
+  padding: 0.5rem;
+  @include breakpoint(medium) {
+    background-color: unset;
+    position: inherit;
+  }
 }
-.intro{
-   display: inline;
+.intro {
+  display: inline;
 }
 .map-container {
   touch-action: none;
   pointer-events: none;
   z-index: 10000;
-  // width: 60%;
-  // @media screen and (orientation: portrait) {
-  //   width: 100%;
-  // }
-  // @media screen and (orientation: landscape) {
-  //   @media (min-width: 768px) {
-  //     max-width: 50%;
-  //     @media (min-height: 650px) {
-  //       max-width: 100%;
-  //     }
-  //   }
-  // }
 }
 .more {
   display: flex;
