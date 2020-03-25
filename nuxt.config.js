@@ -107,6 +107,13 @@ export default {
         vue.transformAssetUrls.img = ['data-src', 'src']
         vue.transformAssetUrls.source = ['data-srcset', 'srcset']
       }
+    },
+    postcss: {
+      plugins: {
+        cssnano: {
+          preset: ['default', { minifyFontValues: { removeQuotes: false } }]
+        }
+      }
     }
   }
   // server: {

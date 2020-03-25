@@ -33,7 +33,7 @@
       </div>
       <div
         id="resources"
-        class="grid-row"
+        class="grid-row resources"
       >
         <h2>{{ articleData.resources.title }}</h2>
         <div
@@ -105,9 +105,10 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "~@/css/vars";
 @import "~@/css/mixins";
+@import "~@/css/base";
 
 .grid {
   margin-left: auto;
@@ -209,12 +210,15 @@ export default {
 .more {
   display: flex;
   justify-content: center;
-  font-size: small;
   line-height: 1rem;
   margin-top: auto;
   span {
     margin: 0.5rem 1rem 0 1rem;
   }
+}
+.resources {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 .credits {
   padding-bottom: 1rem;
