@@ -110,6 +110,10 @@ export default {
 @import "~@/css/mixins";
 @import "~@/css/base";
 
+p {
+  // line-height: 1.25rem;
+}
+
 .grid {
   margin-left: auto;
   margin-right: auto;
@@ -158,9 +162,12 @@ export default {
 
 .float::before {
   content: " ";
-  height: 100px;
   width: 0px;
   float: right;
+  margin-top: 20%;
+  @media screen and (max-height: 650px) {
+    margin-top: 0px;
+  }
 }
 .bottom-container {
   display: flex;
@@ -179,11 +186,17 @@ export default {
     }
   }
   @media screen and (orientation: landscape) {
-    @media (min-width: 768px) {
-      max-width: 50%;
-      @media (min-height: 650px) {
-        max-width: 100%;
-      }
+    @media (min-height: 650px) {
+      width: 60%;
+    }
+    @media (min-height: 700px) {
+      width: 70%;
+    }
+    @media (min-height: 800px) {
+      width: 80%;
+    }
+    @media (min-height: 1000px) {
+      width: 100%;
     }
   }
 
@@ -213,7 +226,7 @@ export default {
   line-height: 1rem;
   margin-top: auto;
   span {
-    margin: 0.5rem 1rem 0 1rem;
+    margin: 1rem;
   }
 }
 .resources {
@@ -223,7 +236,6 @@ export default {
 .credits {
   padding-bottom: 1rem;
   margin-bottom: 1rem;
-  background-color: $grey;
   .title {
     font-weight: bold;
   }

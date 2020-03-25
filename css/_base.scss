@@ -26,7 +26,6 @@ html {
   background-color: $baseBackColor;
   color: $baseFontColor;
 }
-
 h3 {
   font-weight: 100;
   font-family: $baseFontHeaders;
@@ -184,4 +183,10 @@ code {
 
 .hug {
   margin-top: 0;
+}
+
+h2 {
+  font-family: $header2FontFamily !important;
+  font-size: 1.5 * $scale * 1rem;
+  line-height: 2 * $leading;
 }
