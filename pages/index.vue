@@ -21,6 +21,7 @@
       </div>
       <div class="grid-col-right">
         <SocialEmbeds
+          v-if="embedsData"
           :embeds-data="embedsData"
           @onActiveState="onActiveState"
           @onSelectCategory="c => selectedCategory = c"
