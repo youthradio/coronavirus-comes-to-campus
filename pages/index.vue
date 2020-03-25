@@ -5,17 +5,18 @@
       <div class="grid-col-left">
         <div class="sticky-top">
           <h1> {{ articleData.title }} </h1>
-          <div v-html="articleData.intro.text" />
-          <div class="bottom-container">
-            <div class="more">
-              <span class="title">Read More</span>
-              <span><a href="#resources">Additional Resources</a></span>
-              <span><a href="#credits">Credits</a></span>
+          <div class="float">
+            <div class="bottom-container">
+              <MapContainer
+                class="map-container"
+                :active-state="activeState"
+              />
+              <div class="more">
+                <span><a href="#resources">Additional Resources</a></span>
+                <span><a href="#credits">Credits</a></span>
+              </div>
             </div>
-            <MapContainer
-              class="map-container"
-              :active-state="activeState"
-            />
+            <div class="intro" v-html="articleData.intro.text" />
           </div>
         </div>
       </div>
@@ -108,7 +109,7 @@ export default {
 .grid {
   margin-left: auto;
   margin-right: auto;
-  max-width: 1500px;
+  max-width: 1200px;
   display: grid;
   grid-template-columns: minmax(100%, 1fr);
   @include breakpoint(medium) {
@@ -151,50 +152,51 @@ export default {
   }
 }
 
+.float::before {
+    content: " ";
+    height: 100px;
+    width: 0px;
+    float: right;
+}
 .bottom-container {
   display: flex;
   justify-content: space-between;
-  align-self: baseline;
-  margin-left: auto;
+  flex-direction: column;
   touch-action: none;
   z-index: 10000;
-  position: fixed;
-  bottom: 50px;
-  right: 0px;
-  width: 100%;
-  @include breakpoint(medium) {
-    position: absolute;
-    bottom: 5px;
-  }
+  float: right;
+  clear: right;
+  width: 60%;
+  margin-top: 0.5rem;
 }
-
+.intro{
+   display: inline;
+}
 .map-container {
   touch-action: none;
   pointer-events: none;
   z-index: 10000;
-  width: 60%;
-  @media screen and (orientation: portrait) {
-    width: 100%;
-  }
-  @media screen and (orientation: landscape) {
-    @media (min-width: 768px) {
-      max-width: 50%;
-      @media (min-height: 650px) {
-        max-width: 100%;
-      }
-    }
-  }
+  // width: 60%;
+  // @media screen and (orientation: portrait) {
+  //   width: 100%;
+  // }
+  // @media screen and (orientation: landscape) {
+  //   @media (min-width: 768px) {
+  //     max-width: 50%;
+  //     @media (min-height: 650px) {
+  //       max-width: 100%;
+  //     }
+  //   }
+  // }
 }
 .more {
+  display: flex;
+  justify-content: center;
   font-size: small;
   line-height: 1rem;
   margin-top: auto;
-  .title {
-    font-weight: bold;
-    text-decoration: underline;
-  }
   span {
-    display: block;
+    margin: 0.5rem 1rem 0 1rem;
   }
 }
 .credits {
