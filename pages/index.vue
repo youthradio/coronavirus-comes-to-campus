@@ -164,8 +164,8 @@ p {
   content: " ";
   width: 0px;
   float: right;
-  margin-top: 20%;
-  @media screen and (max-height: 650px) {
+  margin-top: 30%;
+  @media screen and (max-height: 750px) {
     margin-top: 0px;
   }
 }
@@ -186,14 +186,14 @@ p {
     }
   }
   @media screen and (orientation: landscape) {
-    @media (min-height: 650px) {
+    @media (min-height: 600px) {
+      width: 50%;
+    }
+    @media (min-height: 750px) {
       width: 60%;
     }
-    @media (min-height: 700px) {
+    @media (min-height: 850px) {
       width: 70%;
-    }
-    @media (min-height: 800px) {
-      width: 80%;
     }
     @media (min-height: 1000px) {
       width: 100%;
@@ -224,7 +224,11 @@ p {
   display: flex;
   justify-content: center;
   line-height: 1rem;
+  font-size: 0.8rem;
   margin-top: auto;
+  @media (min-height: 800px) {
+    font-size: 1rem
+  }
   span {
     margin: 1rem;
   }
